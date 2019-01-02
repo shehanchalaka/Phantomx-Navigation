@@ -1,0 +1,20 @@
+<launch>
+
+    <!-- Launch this to visualize in rviz along with the real robot -->
+
+    <!-- Arguments-->
+    <arg name="robot_model" value="$(find phantomx_description)/urdf/phantomx.xacro" />
+    <arg name="rvizconfig" default="$(find phantomx_description)/rviz/default.rviz" />
+
+    <!-- Load the URDF/Xacro model of our robot to the parameter server-->
+    <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg robot_model)" />
+
+    <!-- Publish the robot state (TF) -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" >
+        <param name="publish_frequency" value="20.0" />
+    </node>
+    
+    <!-- Run rviz -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+
+</launch>

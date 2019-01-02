@@ -1,0 +1,18 @@
+imu:
+  topic_name: mpu6050/orientation
+  queue_size: 1
+
+contact_sensors:
+  topic_name: contacts
+  queue_size: 1
+
+kalman_filter:
+  update_rate: 20
+
+## noise terms ##
+position_noise: 0.01 # for Rt
+velocity_noise: 0.05 # for Rt
+foot_noise: 0.04 # for Rt
+encoder_measurement_noise: 0.05 # for Qt
+forward_kinematic_noise: 0.01 # for Qt
+observation_noise: 0.05 # for Qt

@@ -1,0 +1,1 @@
+controller_joint_names: [AL_coxa_joint, AL_femur_joint, AL_tibia_joint, AR_coxa_joint, AR_femur_joint, AR_tibia_joint, BL_coxa_joint, BL_femur_joint, BL_tibia_joint, BR_coxa_joint, BR_femur_joint, BR_tibia_joint, CL_coxa_joint, CL_femur_joint, CL_tibia_joint, CR_coxa_joint, CR_femur_joint, CR_tibia_joint]

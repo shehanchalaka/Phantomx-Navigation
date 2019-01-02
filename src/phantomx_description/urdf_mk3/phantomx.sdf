@@ -1,0 +1,1970 @@
+<sdf version='1.6'>
+  <model name='PhantomX'>
+    <link name='base_link'>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.975599</mass>
+        <inertia>
+          <ixx>3.10818</ixx>
+          <ixy>-0.254602</ixy>
+          <ixz>2.03182</ixz>
+          <iyy>6.37878</iyy>
+          <iyz>0.164179</iyz>
+          <izz>5.33164</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_link_fixed_joint_lump__MP_BODY_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/body_coll.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='base_link_fixed_joint_lump__MP_BODY_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/body.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <gravity>1</gravity>
+    </link>
+    <link name='c1_AL'>
+      <pose frame=''>0.1248 0.06164 0.001116 3.14159 -1.57071 -0.785398</pose>
+      <inertial>
+        <pose frame=''>0 -0.027 0 0 -0 0</pose>
+        <mass>0.0487154</mass>
+        <inertia>
+          <ixx>0.0062791</ixx>
+          <ixy>-0.000594735</ixy>
+          <ixz>-4.78731e-05</ixz>
+          <iyy>0.0163831</iyy>
+          <iyz>-0.000594518</iyz>
+          <izz>0.00627913</izz>
+        </inertia>
+      </inertial>
+      <collision name='c1_AL_collision'>
+        <pose frame=''>0 -0.02633 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/connect_coll.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>100</kp>
+              <kd>10</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.6</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='c1_AL_fixed_joint_lump__c2_AL_collision_1'>
+        <pose frame=''>0 -0.02767 0 0 1.5704 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/connect_coll.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>100</kp>
+              <kd>10</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.6</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='c1_AL_visual'>
+        <pose frame=''>0 -0.0252 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/connect.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='c1_AL_fixed_joint_lump__c2_AL_visual_1'>
+        <pose frame=''>0 -0.0288 0 0 1.5704 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/connect.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay/>
+      <gravity>1</gravity>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <gravity>1</gravity>
+    </link>
+    <joint name='AL_coxa_joint' type='revolute'>
+      <child>c1_AL</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>6.3e-05 -6.3e-05 1</xyz>
+        <limit>
+          <lower>-2.61799</lower>
+          <upper>2.61799</upper>
+          <effort>2.8</effort>
+          <velocity>5.65487</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0.7</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='thigh_AL'>
+      <pose frame=''>0.162984 0.099824 0.001116 3e-06 0.000305 2.3562</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.0243577</mass>
+        <inertia>
+          <ixx>0.00514111</ixx>
+          <ixy>-0.000575303</ixy>
+          <ixz>-2.4729e-05</ixz>
+          <iyy>0.00819157</iyy>
+          <iyz>-1.92231e-05</iyz>
+          <izz>0.00113798</izz>
+        </inertia>
+      </inertial>
+      <collision name='thigh_AL_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/thigh_l_coll.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>100</kp>
+              <kd>10</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.6</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='thigh_AL_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/thigh_l.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <gravity>1</gravity>
+    </link>
+    <joint name='AL_femur_joint' type='revolute'>
+      <child>thigh_AL</child>
+      <parent>c1_AL</parent>
+      <axis>
+        <xyz>-0.707109 0.707105 -0.000305</xyz>
+        <limit>
+          <lower>-2.61799</lower>
+          <upper>2.61799</upper>
+          <effort>2.8</effort>
+          <velocity>5.65487</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0.7</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='tibia_AL'>
+      <pose frame=''>0.208595 0.145429 -0.013384 -1.5707 -0.000305 -0.785398</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.0243577</mass>
+        <inertia>
+          <ixx>0.00514111</ixx>
+          <ixy>-0.000575303</ixy>
+          <ixz>-2.4729e-05</ixz>
+          <iyy>0.00819157</iyy>
+          <iyz>-1.92231e-05</iyz>
+          <izz>0.00113798</izz>
+        </inertia>
+      </inertial>
+      <collision name='tibia_AL_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/tibia_l_coll.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>1000</kp>
+              <kd>10</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.6</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='tibia_AL_fixed_joint_lump__foot_AL_collision_1'>
+        <pose frame=''>0 0.16 0.03 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.01 0.01 0.01</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>1000</kp>
+              <kd>100</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.6</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tibia_AL_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/tibia_l.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='tibia_AL_fixed_joint_lump__foot_AL_visual_1'>
+        <pose frame=''>0 0.16 0.03 0 -0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.003</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Blue</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay/>
+      <gravity>1</gravity>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <gravity>1</gravity>
+      <sensor name='AL_foot_contact_sensor' type='contact'>
+        <always_on>1</always_on>
+        <update_rate>1</update_rate>
+        <contact>
+          <collision>tibia_AL_collision_foot_AL</collision>
+          <topic>__default_topic__</topic>
+        </contact>
+        <plugin name='gripper_bumper' filename='libgazebo_ros_bumper.so'>
+          <bumperTopicName>AL_foot_contact_sensor_state</bumperTopicName>
+          <frameName>AL_foot</frameName>
+        </plugin>
+        <pose frame=''>0 0.16 0.03 0 -0 0</pose>
+      </sensor>
+    </link>
+    <joint name='AL_tibia_joint' type='revolute'>
+      <child>tibia_AL</child>
+      <parent>thigh_AL</parent>
+      <axis>
+        <xyz>0.707107 -0.707107 0.000305</xyz>
+        <limit>
+          <lower>-2.61799</lower>
+          <upper>2.61799</upper>
+          <effort>2.8</effort>
+          <velocity>5.65487</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0.7</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='c1_AR'>
+      <pose frame=''>0.1248 -0.06164 0.001116 3.14159 -1.57071 -2.35619</pose>
+      <inertial>
+        <pose frame=''>0 -0.027 0 0 -0 0</pose>
+        <mass>0.0487154</mass>
+        <inertia>
+          <ixx>0.0062791</ixx>
+          <ixy>-0.000594735</ixy>
+          <ixz>-4.78731e-05</ixz>
+          <iyy>0.0163831</iyy>
+          <iyz>-0.000594518</iyz>
+          <izz>0.00627913</izz>
+        </inertia>
+      </inertial>
+      <collision name='c1_AR_collision'>
+        <pose frame=''>0 -0.02633 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/connect_coll.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>100</kp>
+              <kd>10</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.6</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='c1_AR_fixed_joint_lump__c2_AR_collision_1'>
+        <pose frame=''>0 -0.02767 0 0 1.5704 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/connect_coll.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>100</kp>
+              <kd>10</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.6</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='c1_AR_visual'>
+        <pose frame=''>0 -0.0252 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/connect.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='c1_AR_fixed_joint_lump__c2_AR_visual_1'>
+        <pose frame=''>0 -0.0288 0 0 1.5704 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/connect.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay/>
+      <gravity>1</gravity>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <gravity>1</gravity>
+    </link>
+    <joint name='AR_coxa_joint' type='revolute'>
+      <child>c1_AR</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>-6.3e-05 -6.3e-05 1</xyz>
+        <limit>
+          <lower>-2.61799</lower>
+          <upper>2.61799</upper>
+          <effort>2.8</effort>
+          <velocity>5.65487</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0.7</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='thigh_AR'>
+      <pose frame=''>0.162984 -0.099824 0.001116 3e-06 0.000305 0.785401</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.0243577</mass>
+        <inertia>
+          <ixx>0.00514111</ixx>
+          <ixy>-0.000575303</ixy>
+          <ixz>-2.4729e-05</ixz>
+          <iyy>0.00819157</iyy>
+          <iyz>-1.92231e-05</iyz>
+          <izz>0.00113798</izz>
+        </inertia>
+      </inertial>
+      <collision name='thigh_AR_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/thigh_l_coll.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>100</kp>
+              <kd>10</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.6</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='thigh_AR_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/thigh_l.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <gravity>1</gravity>
+    </link>
+    <joint name='AR_femur_joint' type='revolute'>
+      <child>thigh_AR</child>
+      <parent>c1_AR</parent>
+      <axis>
+        <xyz>-0.707105 -0.707109 0.000305</xyz>
+        <limit>
+          <lower>-2.61799</lower>
+          <upper>2.61799</upper>
+          <effort>2.8</effort>
+          <velocity>5.65487</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0.7</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='tibia_AR'>
+      <pose frame=''>0.208589 -0.145435 -0.013384 -1.5707 -0.000305 -2.35619</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.0243577</mass>
+        <inertia>
+          <ixx>0.00514111</ixx>
+          <ixy>-0.000575303</ixy>
+          <ixz>-2.4729e-05</ixz>
+          <iyy>0.00819157</iyy>
+          <iyz>-1.92231e-05</iyz>
+          <izz>0.00113798</izz>
+        </inertia>
+      </inertial>
+      <collision name='tibia_AR_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/tibia_l_coll.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>1000</kp>
+              <kd>10</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.6</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='tibia_AR_fixed_joint_lump__foot_AR_collision_1'>
+        <pose frame=''>0 0.16 0.03 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.01 0.01 0.01</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>1000</kp>
+              <kd>100</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.6</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tibia_AR_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/tibia_l.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='tibia_AR_fixed_joint_lump__foot_AR_visual_1'>
+        <pose frame=''>0 0.16 0.03 0 -0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.003</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Blue</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay/>
+      <gravity>1</gravity>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <gravity>1</gravity>
+      <sensor name='AR_foot_contact_sensor' type='contact'>
+        <always_on>1</always_on>
+        <update_rate>1</update_rate>
+        <contact>
+          <collision>tibia_AR_collision_foot_AR</collision>
+          <topic>__default_topic__</topic>
+        </contact>
+        <plugin name='gripper_bumper' filename='libgazebo_ros_bumper.so'>
+          <bumperTopicName>AR_foot_contact_sensor_state</bumperTopicName>
+          <frameName>AR_foot</frameName>
+        </plugin>
+        <pose frame=''>0 0.16 0.03 0 -0 0</pose>
+      </sensor>
+    </link>
+    <joint name='AR_tibia_joint' type='revolute'>
+      <child>tibia_AR</child>
+      <parent>thigh_AR</parent>
+      <axis>
+        <xyz>0.707107 0.707107 -0.000305</xyz>
+        <limit>
+          <lower>-2.61799</lower>
+          <upper>2.61799</upper>
+          <effort>2.8</effort>
+          <velocity>5.65487</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0.7</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='c1_BL'>
+      <pose frame=''>0 0.1034 0.001116 3.14159 -1.57071 -3e-06</pose>
+      <inertial>
+        <pose frame=''>0 -0.027 0 0 -0 0</pose>
+        <mass>0.0487154</mass>
+        <inertia>
+          <ixx>0.0062791</ixx>
+          <ixy>-0.000594735</ixy>
+          <ixz>-4.78731e-05</ixz>
+          <iyy>0.0163831</iyy>
+          <iyz>-0.000594518</iyz>
+          <izz>0.00627913</izz>
+        </inertia>
+      </inertial>
+      <collision name='c1_BL_collision'>
+        <pose frame=''>0 -0.02633 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/connect_coll.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>100</kp>
+              <kd>10</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.6</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='c1_BL_fixed_joint_lump__c2_BL_collision_1'>
+        <pose frame=''>0 -0.02767 0 0 1.5704 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/connect_coll.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>100</kp>
+              <kd>10</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.6</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='c1_BL_visual'>
+        <pose frame=''>0 -0.0252 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/connect.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='c1_BL_fixed_joint_lump__c2_BL_visual_1'>
+        <pose frame=''>0 -0.0288 0 0 1.5704 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/connect.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay/>
+      <gravity>1</gravity>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <gravity>1</gravity>
+    </link>
+    <joint name='BL_coxa_joint' type='revolute'>
+      <child>c1_BL</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>8.9e-05 -0 1</xyz>
+        <limit>
+          <lower>-2.61799</lower>
+          <upper>2.61799</upper>
+          <effort>2.8</effort>
+          <velocity>5.65487</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0.7</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='thigh_BL'>
+      <pose frame=''>0 0.1574 0.001116 3e-06 0.000305 -3.14159</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.0243577</mass>
+        <inertia>
+          <ixx>0.00514111</ixx>
+          <ixy>-0.000575303</ixy>
+          <ixz>-2.4729e-05</ixz>
+          <iyy>0.00819157</iyy>
+          <iyz>-1.92231e-05</iyz>
+          <izz>0.00113798</izz>
+        </inertia>
+      </inertial>
+      <collision name='thigh_BL_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/thigh_l_coll.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>100</kp>
+              <kd>10</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.6</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='thigh_BL_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/thigh_l.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <gravity>1</gravity>
+    </link>
+    <joint name='BL_femur_joint' type='revolute'>
+      <child>thigh_BL</child>
+      <parent>c1_BL</parent>
+      <axis>
+        <xyz>-1 -0 -0.000305</xyz>
+        <limit>
+          <lower>-2.61799</lower>
+          <upper>2.61799</upper>
+          <effort>2.8</effort>
+          <velocity>5.65487</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0.7</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='tibia_BL'>
+      <pose frame=''>5e-06 0.2219 -0.013384 -1.5707 -0.000305 -3e-06</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.0243577</mass>
+        <inertia>
+          <ixx>0.00514111</ixx>
+          <ixy>-0.000575303</ixy>
+          <ixz>-2.4729e-05</ixz>
+          <iyy>0.00819157</iyy>
+          <iyz>-1.92231e-05</iyz>
+          <izz>0.00113798</izz>
+        </inertia>
+      </inertial>
+      <collision name='tibia_BL_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/tibia_l_coll.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>1000</kp>
+              <kd>10</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.6</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='tibia_BL_fixed_joint_lump__foot_BL_collision_1'>
+        <pose frame=''>0 0.16 0.03 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.01 0.01 0.01</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>1000</kp>
+              <kd>100</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.6</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tibia_BL_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/tibia_l.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='tibia_BL_fixed_joint_lump__foot_BL_visual_1'>
+        <pose frame=''>0 0.16 0.03 0 -0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.003</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Blue</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay/>
+      <gravity>1</gravity>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <gravity>1</gravity>
+      <sensor name='BL_foot_contact_sensor' type='contact'>
+        <always_on>1</always_on>
+        <update_rate>1</update_rate>
+        <contact>
+          <collision>tibia_BL_collision_foot_BL</collision>
+          <topic>__default_topic__</topic>
+        </contact>
+        <plugin name='gripper_bumper' filename='libgazebo_ros_bumper.so'>
+          <bumperTopicName>BL_foot_contact_sensor_state</bumperTopicName>
+          <frameName>BL_foot</frameName>
+        </plugin>
+        <pose frame=''>0 0.16 0.03 0 -0 0</pose>
+      </sensor>
+    </link>
+    <joint name='BL_tibia_joint' type='revolute'>
+      <child>tibia_BL</child>
+      <parent>thigh_BL</parent>
+      <axis>
+        <xyz>1 -3e-06 0.000305</xyz>
+        <limit>
+          <lower>-2.61799</lower>
+          <upper>2.61799</upper>
+          <effort>2.8</effort>
+          <velocity>5.65487</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0.7</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='c1_BR'>
+      <pose frame=''>0 -0.1034 0.001116 3.14159 -1.57071 3.14159</pose>
+      <inertial>
+        <pose frame=''>0 -0.027 0 0 -0 0</pose>
+        <mass>0.0487154</mass>
+        <inertia>
+          <ixx>0.0062791</ixx>
+          <ixy>-0.000594735</ixy>
+          <ixz>-4.78731e-05</ixz>
+          <iyy>0.0163831</iyy>
+          <iyz>-0.000594518</iyz>
+          <izz>0.00627913</izz>
+        </inertia>
+      </inertial>
+      <collision name='c1_BR_collision'>
+        <pose frame=''>0 -0.02633 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/connect_coll.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>100</kp>
+              <kd>10</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.6</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='c1_BR_fixed_joint_lump__c2_BR_collision_1'>
+        <pose frame=''>0 -0.02767 0 0 1.5704 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/connect_coll.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>100</kp>
+              <kd>10</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.6</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='c1_BR_visual'>
+        <pose frame=''>0 -0.0252 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/connect.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='c1_BR_fixed_joint_lump__c2_BR_visual_1'>
+        <pose frame=''>0 -0.0288 0 0 1.5704 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/connect.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay/>
+      <gravity>1</gravity>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <gravity>1</gravity>
+    </link>
+    <joint name='BR_coxa_joint' type='revolute'>
+      <child>c1_BR</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>-8.9e-05 0 1</xyz>
+        <limit>
+          <lower>-2.61799</lower>
+          <upper>2.61799</upper>
+          <effort>2.8</effort>
+          <velocity>5.65487</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0.7</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='thigh_BR'>
+      <pose frame=''>0 -0.1574 0.001116 3e-06 0.000305 3e-06</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.0243577</mass>
+        <inertia>
+          <ixx>0.00514111</ixx>
+          <ixy>-0.000575303</ixy>
+          <ixz>-2.4729e-05</ixz>
+          <iyy>0.00819157</iyy>
+          <iyz>-1.92231e-05</iyz>
+          <izz>0.00113798</izz>
+        </inertia>
+      </inertial>
+      <collision name='thigh_BR_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/thigh_l_coll.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>100</kp>
+              <kd>10</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.6</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='thigh_BR_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/thigh_l.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <gravity>1</gravity>
+    </link>
+    <joint name='BR_femur_joint' type='revolute'>
+      <child>thigh_BR</child>
+      <parent>c1_BR</parent>
+      <axis>
+        <xyz>-1 -3e-06 0.000305</xyz>
+        <limit>
+          <lower>-2.61799</lower>
+          <upper>2.61799</upper>
+          <effort>2.8</effort>
+          <velocity>5.65487</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0.7</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='tibia_BR'>
+      <pose frame=''>-4e-06 -0.2219 -0.013384 -1.5707 -0.000305 -3.14159</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.0243577</mass>
+        <inertia>
+          <ixx>0.00514111</ixx>
+          <ixy>-0.000575303</ixy>
+          <ixz>-2.4729e-05</ixz>
+          <iyy>0.00819157</iyy>
+          <iyz>-1.92231e-05</iyz>
+          <izz>0.00113798</izz>
+        </inertia>
+      </inertial>
+      <collision name='tibia_BR_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/tibia_l_coll.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>1000</kp>
+              <kd>10</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.6</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='tibia_BR_fixed_joint_lump__foot_BR_collision_1'>
+        <pose frame=''>0 0.16 0.03 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.01 0.01 0.01</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>1000</kp>
+              <kd>100</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.6</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tibia_BR_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/tibia_l.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='tibia_BR_fixed_joint_lump__foot_BR_visual_1'>
+        <pose frame=''>0 0.16 0.03 0 -0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.003</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Blue</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay/>
+      <gravity>1</gravity>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <gravity>1</gravity>
+      <sensor name='BR_foot_contact_sensor' type='contact'>
+        <always_on>1</always_on>
+        <update_rate>1</update_rate>
+        <contact>
+          <collision>tibia_BR_collision_foot_BR</collision>
+          <topic>__default_topic__</topic>
+        </contact>
+        <plugin name='gripper_bumper' filename='libgazebo_ros_bumper.so'>
+          <bumperTopicName>BR_foot_contact_sensor_state</bumperTopicName>
+          <frameName>BR_foot</frameName>
+        </plugin>
+        <pose frame=''>0 0.16 0.03 0 -0 0</pose>
+      </sensor>
+    </link>
+    <joint name='BR_tibia_joint' type='revolute'>
+      <child>tibia_BR</child>
+      <parent>thigh_BR</parent>
+      <axis>
+        <xyz>1 0 -0.000305</xyz>
+        <limit>
+          <lower>-2.61799</lower>
+          <upper>2.61799</upper>
+          <effort>2.8</effort>
+          <velocity>5.65487</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0.7</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='c1_CL'>
+      <pose frame=''>-0.1248 0.06164 0.001116 -3.14159 -1.57071 0.785398</pose>
+      <inertial>
+        <pose frame=''>0 -0.027 0 0 -0 0</pose>
+        <mass>0.0487154</mass>
+        <inertia>
+          <ixx>0.0062791</ixx>
+          <ixy>-0.000594735</ixy>
+          <ixz>-4.78731e-05</ixz>
+          <iyy>0.0163831</iyy>
+          <iyz>-0.000594518</iyz>
+          <izz>0.00627913</izz>
+        </inertia>
+      </inertial>
+      <collision name='c1_CL_collision'>
+        <pose frame=''>0 -0.02633 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/connect_coll.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>100</kp>
+              <kd>10</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.6</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='c1_CL_fixed_joint_lump__c2_CL_collision_1'>
+        <pose frame=''>0 -0.02767 0 0 1.5704 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/connect_coll.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>100</kp>
+              <kd>10</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.6</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='c1_CL_visual'>
+        <pose frame=''>0 -0.0252 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/connect.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='c1_CL_fixed_joint_lump__c2_CL_visual_1'>
+        <pose frame=''>0 -0.0288 0 0 1.5704 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/connect.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay/>
+      <gravity>1</gravity>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <gravity>1</gravity>
+    </link>
+    <joint name='CL_coxa_joint' type='revolute'>
+      <child>c1_CL</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>6.3e-05 6.3e-05 1</xyz>
+        <limit>
+          <lower>-2.61799</lower>
+          <upper>2.61799</upper>
+          <effort>2.8</effort>
+          <velocity>5.65487</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0.7</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='thigh_CL'>
+      <pose frame=''>-0.162984 0.099824 0.001116 3e-06 0.000305 -2.35619</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.0243577</mass>
+        <inertia>
+          <ixx>0.00514111</ixx>
+          <ixy>-0.000575303</ixy>
+          <ixz>-2.4729e-05</ixz>
+          <iyy>0.00819157</iyy>
+          <iyz>-1.92231e-05</iyz>
+          <izz>0.00113798</izz>
+        </inertia>
+      </inertial>
+      <collision name='thigh_CL_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/thigh_l_coll.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>100</kp>
+              <kd>10</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.6</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='thigh_CL_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/thigh_l.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <gravity>1</gravity>
+    </link>
+    <joint name='CL_femur_joint' type='revolute'>
+      <child>thigh_CL</child>
+      <parent>c1_CL</parent>
+      <axis>
+        <xyz>-0.707105 -0.707109 -0.000305</xyz>
+        <limit>
+          <lower>-2.61799</lower>
+          <upper>2.61799</upper>
+          <effort>2.8</effort>
+          <velocity>5.65487</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0.7</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='tibia_CL'>
+      <pose frame=''>-0.208589 0.145435 -0.013384 -1.5707 -0.000305 0.785398</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.0243577</mass>
+        <inertia>
+          <ixx>0.00514111</ixx>
+          <ixy>-0.000575303</ixy>
+          <ixz>-2.4729e-05</ixz>
+          <iyy>0.00819157</iyy>
+          <iyz>-1.92231e-05</iyz>
+          <izz>0.00113798</izz>
+        </inertia>
+      </inertial>
+      <collision name='tibia_CL_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/tibia_l_coll.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>1000</kp>
+              <kd>10</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.6</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='tibia_CL_fixed_joint_lump__foot_CL_collision_1'>
+        <pose frame=''>0 0.16 0.03 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.01 0.01 0.01</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>1000</kp>
+              <kd>100</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.6</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tibia_CL_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/tibia_l.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='tibia_CL_fixed_joint_lump__foot_CL_visual_1'>
+        <pose frame=''>0 0.16 0.03 0 -0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.003</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Blue</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay/>
+      <gravity>1</gravity>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <gravity>1</gravity>
+      <sensor name='CL_foot_contact_sensor' type='contact'>
+        <always_on>1</always_on>
+        <update_rate>1</update_rate>
+        <contact>
+          <collision>tibia_CL_collision_foot_CL</collision>
+          <topic>__default_topic__</topic>
+        </contact>
+        <plugin name='gripper_bumper' filename='libgazebo_ros_bumper.so'>
+          <bumperTopicName>CL_foot_contact_sensor_state</bumperTopicName>
+          <frameName>CL_foot</frameName>
+        </plugin>
+        <pose frame=''>0 0.16 0.03 0 -0 0</pose>
+      </sensor>
+    </link>
+    <joint name='CL_tibia_joint' type='revolute'>
+      <child>tibia_CL</child>
+      <parent>thigh_CL</parent>
+      <axis>
+        <xyz>0.707107 0.707107 0.000305</xyz>
+        <limit>
+          <lower>-2.61799</lower>
+          <upper>2.61799</upper>
+          <effort>2.8</effort>
+          <velocity>5.65487</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0.7</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='c1_CR'>
+      <pose frame=''>-0.1248 -0.06164 0.001116 3.14159 -1.57071 2.35619</pose>
+      <inertial>
+        <pose frame=''>0 -0.027 0 0 -0 0</pose>
+        <mass>0.0487154</mass>
+        <inertia>
+          <ixx>0.0062791</ixx>
+          <ixy>-0.000594735</ixy>
+          <ixz>-4.78731e-05</ixz>
+          <iyy>0.0163831</iyy>
+          <iyz>-0.000594518</iyz>
+          <izz>0.00627913</izz>
+        </inertia>
+      </inertial>
+      <collision name='c1_CR_collision'>
+        <pose frame=''>0 -0.02633 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/connect_coll.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>100</kp>
+              <kd>10</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.6</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='c1_CR_fixed_joint_lump__c2_CR_collision_1'>
+        <pose frame=''>0 -0.02767 0 0 1.5704 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/connect_coll.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>100</kp>
+              <kd>10</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.6</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='c1_CR_visual'>
+        <pose frame=''>0 -0.0252 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/connect.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='c1_CR_fixed_joint_lump__c2_CR_visual_1'>
+        <pose frame=''>0 -0.0288 0 0 1.5704 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/connect.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay/>
+      <gravity>1</gravity>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <gravity>1</gravity>
+    </link>
+    <joint name='CR_coxa_joint' type='revolute'>
+      <child>c1_CR</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>-6.3e-05 6.3e-05 1</xyz>
+        <limit>
+          <lower>-2.61799</lower>
+          <upper>2.61799</upper>
+          <effort>2.8</effort>
+          <velocity>5.65487</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0.7</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='thigh_CR'>
+      <pose frame=''>-0.162984 -0.099824 0.001116 3e-06 0.000305 -0.785396</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.0243577</mass>
+        <inertia>
+          <ixx>0.00514111</ixx>
+          <ixy>-0.000575303</ixy>
+          <ixz>-2.4729e-05</ixz>
+          <iyy>0.00819157</iyy>
+          <iyz>-1.92231e-05</iyz>
+          <izz>0.00113798</izz>
+        </inertia>
+      </inertial>
+      <collision name='thigh_CR_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/thigh_l_coll.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>100</kp>
+              <kd>10</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.6</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='thigh_CR_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/thigh_l.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <gravity>1</gravity>
+    </link>
+    <joint name='CR_femur_joint' type='revolute'>
+      <child>thigh_CR</child>
+      <parent>c1_CR</parent>
+      <axis>
+        <xyz>-0.707109 0.707105 0.000305</xyz>
+        <limit>
+          <lower>-2.61799</lower>
+          <upper>2.61799</upper>
+          <effort>2.8</effort>
+          <velocity>5.65487</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0.7</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='tibia_CR'>
+      <pose frame=''>-0.208595 -0.145429 -0.013384 -1.5707 -0.000305 2.35619</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.0243577</mass>
+        <inertia>
+          <ixx>0.00514111</ixx>
+          <ixy>-0.000575303</ixy>
+          <ixz>-2.4729e-05</ixz>
+          <iyy>0.00819157</iyy>
+          <iyz>-1.92231e-05</iyz>
+          <izz>0.00113798</izz>
+        </inertia>
+      </inertial>
+      <collision name='tibia_CR_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/tibia_l_coll.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>1000</kp>
+              <kd>10</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.6</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='tibia_CR_fixed_joint_lump__foot_CR_collision_1'>
+        <pose frame=''>0 0.16 0.03 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.01 0.01 0.01</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <kp>1000</kp>
+              <kd>100</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.6</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='tibia_CR_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://phantomx_description/meshes_mk3/tibia_l.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='tibia_CR_fixed_joint_lump__foot_CR_visual_1'>
+        <pose frame=''>0 0.16 0.03 0 -0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.003</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Blue</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <velocity_decay/>
+      <gravity>1</gravity>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <gravity>1</gravity>
+      <sensor name='CR_foot_contact_sensor' type='contact'>
+        <always_on>1</always_on>
+        <update_rate>1</update_rate>
+        <contact>
+          <collision>tibia_CR_collision_foot_CR</collision>
+          <topic>__default_topic__</topic>
+        </contact>
+        <plugin name='gripper_bumper' filename='libgazebo_ros_bumper.so'>
+          <bumperTopicName>CR_foot_contact_sensor_state</bumperTopicName>
+          <frameName>CR_foot</frameName>
+        </plugin>
+        <pose frame=''>0 0.16 0.03 0 -0 0</pose>
+      </sensor>
+    </link>
+    <joint name='CR_tibia_joint' type='revolute'>
+      <child>tibia_CR</child>
+      <parent>thigh_CR</parent>
+      <axis>
+        <xyz>0.707107 -0.707107 -0.000305</xyz>
+        <limit>
+          <lower>-2.61799</lower>
+          <upper>2.61799</upper>
+          <effort>2.8</effort>
+          <velocity>5.65487</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0.7</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <static>0</static>
+    <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'/>
+  </model>
+</sdf>

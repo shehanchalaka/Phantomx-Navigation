@@ -1,0 +1,13 @@
+<launch>
+
+    <include file="$(find phantomx_control)/launch/dynamixel.launch" />
+
+    <!-- start the robot controller node -->
+    <node name="phantomx_control" pkg="phantomx_control" type="phantomx_manual_control" output="screen" />
+
+
+    <!-- Logitech F710 wireless gamepad -->
+    <param name="joy_node/dev" value="/dev/input/js0" />
+    <node name="joy_node" pkg="joy" type="joy_node" />
+
+</launch>

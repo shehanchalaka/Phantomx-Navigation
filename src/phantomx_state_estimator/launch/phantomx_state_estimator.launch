@@ -1,0 +1,5 @@
+<launch>
+    <node name="phantomx_state_estimator" pkg="phantomx_state_estimator" type="phantomx_state_estimator" output="screen">
+        <rosparam command="load" file="$(find phantomx_state_estimator)/config/config.yaml" />
+    </node>
+</launch>

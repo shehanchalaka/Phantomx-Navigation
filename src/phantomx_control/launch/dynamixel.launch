@@ -1,0 +1,112 @@
+<launch>
+
+    <arg name="dynamixel_namespace" value="dynamixel_controllers" />
+
+    <!-- Load the URDF/Xacro model of our robot to the parameter server -->
+    <arg name="robot_model" value="$(find phantomx_description)/urdf/phantomx.xacro" />
+    <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg robot_model)" />
+    
+    <!-- Publish the robot state (TF) -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" >
+        <param name="publish_frequency" value="20.0" />
+    </node>
+
+    <!-- first a controller manager node is launched that connects to the Dynamixel bus 
+    (USB2Dynamixel controller).  The controller node then launches a 
+    number of individual controllers, one for each servo on the bus. -->
+
+    <!-- Start the dynamixel low-lever driver manager with parameters -->
+    <node name="dynamixel_manager" pkg="dynamixel_controllers" type="controller_manager.py" required="true" output="screen" >
+        <rosparam>
+            namespace: dynamixel_manager
+            serial_ports:
+                dynamixel_ax12:
+                    port_name: "/dev/ttyUSB0"
+                    baud_rate: 1000000
+                    min_motor_id: 1
+                    max_motor_id: 18
+                    update_rate: 50
+        </rosparam>
+    </node>
+
+    <!-- Load joint controller configuration from YAML file to parameter server -->
+    <rosparam file="$(find phantomx_control)/config/dynamixel_params.yaml" command="load" />
+
+    <!-- Start the controllers -->
+    <node name="dynamixel_controller_spawner_ax12" pkg="dynamixel_controllers" type="controller_spawner.py" 
+          args="--manager=dynamixel_manager
+                --port=dynamixel_ax12
+                AL_coxa_joint      AL_femur_joint	AL_tibia_joint
+                AR_coxa_joint	     AR_femur_joint	AR_tibia_joint                
+                BL_coxa_joint	     BL_femur_joint	BL_tibia_joint                
+                BR_coxa_joint	     BR_femur_joint	BR_tibia_joint                
+                CL_coxa_joint	     CL_femur_joint	CL_tibia_joint                
+                CR_coxa_joint	     CR_femur_joint	CR_tibia_joint"        
+        output="screen" />
+
+    <rosparam file="$(find phantomx_control)/config/joint_trajectory_controller.yaml" command="load"/>
+
+    <!-- Start the meta controllers -->
+    <node name="AL_controller_spawner_meta" pkg="dynamixel_controllers" type="controller_spawner.py"
+          args="--manager=dynamixel_manager
+                --type=meta
+                AL_joint_trajectory_controller
+                AL_coxa_joint
+                AL_femur_joint
+                AL_tibia_joint"
+          output="screen"/>
+
+    <node name="AR_controller_spawner_meta" pkg="dynamixel_controllers" type="controller_spawner.py"
+          args="--manager=dynamixel_manager
+                --type=meta
+                AR_joint_trajectory_controller
+                AR_coxa_joint
+                AR_femur_joint
+                AR_tibia_joint"
+          output="screen"/>
+
+    <node name="BL_controller_spawner_meta" pkg="dynamixel_controllers" type="controller_spawner.py"
+          args="--manager=dynamixel_manager
+                --type=meta
+                BL_joint_trajectory_controller
+                BL_coxa_joint
+                BL_femur_joint
+                BL_tibia_joint"
+          output="screen"/>
+
+    <node name="BR_controller_spawner_meta" pkg="dynamixel_controllers" type="controller_spawner.py"
+          args="--manager=dynamixel_manager
+                --type=meta
+                BR_joint_trajectory_controller
+                BR_coxa_joint
+                BR_femur_joint
+                BR_tibia_joint"
+          output="screen"/>
+    
+    <node name="CL_controller_spawner_meta" pkg="dynamixel_controllers" type="controller_spawner.py"
+          args="--manager=dynamixel_manager
+                --type=meta
+                CL_joint_trajectory_controller
+                CL_coxa_joint
+                CL_femur_joint
+                CL_tibia_joint"
+          output="screen"/>
+    
+    <node name="CR_controller_spawner_meta" pkg="dynamixel_controllers" type="controller_spawner.py"
+          args="--manager=dynamixel_manager
+                --type=meta
+                CR_joint_trajectory_controller
+                CR_coxa_joint
+                CR_femur_joint
+                CR_tibia_joint"
+          output="screen"/>
+
+     <!--Start the dynamixel joint state publisher -->
+    <node name="dynamixel_joint_state_publisher" pkg="phantomx_control" 
+    type="dynamixel_joint_state_publisher.py" output="screen" /> 
+
+    <!-- Start all dynamixels in the relaxed state -->
+    <!-- *** not ralaxed :P -->
+     <node name="relax_all_servos" pkg="phantomx_control" type="relax_all_servos.py" /> 
+
+</launch>

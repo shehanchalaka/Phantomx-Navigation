@@ -1,0 +1,4 @@
+geometry_msgs/Vector3 speed
+geometry_msgs/Vector3 translation
+geometry_msgs/Vector3 rotation
+int8 gait

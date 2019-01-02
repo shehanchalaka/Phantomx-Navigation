@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: phantomx_description
+    relative_path: urdf/phantomx.xacro
+    xacro_args: "--inorder "
+  SRDF:
+    relative_path: config/phantomx.srdf
+  CONFIG:
+    author_name: Shehan Chalaka
+    author_email: shehanchalakafdo@gmail.com
+    generated_timestamp: 1536862658

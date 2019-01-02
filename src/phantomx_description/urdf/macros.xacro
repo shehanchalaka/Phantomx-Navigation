@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <xacro:property name="PI" value="3.141592654" />
+    <xacro:property name="LEN_COXA" value="0.048" />
+    <xacro:property name="LEN_FEMUR" value="0.083" />
+    <xacro:property name="LEN_TIBIA" value="0.143" />
+
+    <xacro:macro name="leg" params="prefix xyz rpy femur_axis tibia_axis" >
+
+        <link name="${prefix}_coxa_link">
+            <visual>
+                <geometry>
+                    <mesh filename="package://phantomx_description/meshes/coxa_link.STL" />
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <material name="black"/>
+            </visual>
+            <collision>       
+                <geometry>
+                    <mesh filename="package://phantomx_description/meshes/coxa_link_simple.STL" />
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+            </collision>
+            <inertial>
+                <origin xyz="0.024001547 0 0" />
+                <mass value="0.01096414"/>
+                <inertia ixx="0.01"  ixy="0.0"  ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01" />
+            </inertial>
+        </link>
+
+        <link name="${prefix}_femur_link">
+            <visual>
+                <geometry>
+                    <mesh filename="package://phantomx_description/meshes/femur_link.STL" />
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <material name="black"/>
+            </visual>
+            <collision>       
+                <geometry>
+                    <mesh filename="package://phantomx_description/meshes/femur_link_simple.STL" />
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+            </collision>
+            <inertial>
+                <origin xyz="0.04208275 0.00000123 -0.00098111" />
+                <mass value="0.12147677"/>
+                <inertia ixx="0.01"  ixy="0.0"  ixz="0" iyy="0.01" iyz="0.0" izz="0.01" />
+            </inertial>
+        </link>
+
+        <link name="${prefix}_tibia_link">
+            <visual>
+                <geometry>
+                    <mesh filename="package://phantomx_description/meshes/tibia_link.STL" />
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <material name="black"/>
+            </visual>
+            <collision>       
+                <geometry>
+                    <mesh filename="package://phantomx_description/meshes/tibia_link_simple.STL" />
+                </geometry>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+            </collision>
+            <inertial>
+                <origin xyz="0.05151483 0 0" />
+                <mass value="0.03741374"/>
+                <inertia ixx="0.01"  ixy="0.0"  ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01" />
+            </inertial>
+        </link>
+        
+        <link name="${prefix}_foot_link" />
+
+        <joint name="${prefix}_coxa_joint" type="revolute" >
+            <parent link="base_link" />
+            <child link="${prefix}_coxa_link" />
+            <limit effort="1000.0" lower="-3.14" upper="3.14" velocity="1.0" />
+            <axis xyz="0 0 1" />
+            <origin xyz="${xyz}" rpy="${rpy}" />
+            <dynamics friction="1.5" damping="1.5" />
+        </joint>
+
+        <joint name="${prefix}_femur_joint" type="revolute" >
+            <parent link="${prefix}_coxa_link" />
+            <child link="${prefix}_femur_link" />
+            <limit effort="1000.0" lower="-1.5707" upper="1.5707" velocity="1.0" />
+            <axis xyz="${femur_axis}" />
+            <origin xyz="${LEN_COXA} 0 0" rpy="1.5707 0 0" />
+            <dynamics friction="1.5" damping="1.5" />
+        </joint>
+
+        <joint name="${prefix}_tibia_joint" type="revolute" >
+            <parent link="${prefix}_femur_link" />
+            <child link="${prefix}_tibia_link" />
+            <limit effort="1000.0" lower="-2.3562" upper="2.3562" velocity="1.0" />
+            <axis xyz="${tibia_axis}" />
+            <origin xyz="${LEN_FEMUR} 0 0" rpy="0 0 ${-PI/2}" />
+            <dynamics friction="1.5" damping="1.5" />
+        </joint>
+
+        <joint name="${prefix}_foot_joint" type="fixed">
+            <parent link="${prefix}_tibia_link" />
+            <child link="${prefix}_foot_link" />
+            <limit effort="1000.0" lower="-2.3562" upper="2.3562" velocity="1.0" />
+            <axis xyz="1 0 0" />
+            <origin xyz="${LEN_TIBIA} 0 0" rpy="0 0 0" />
+        </joint>
+
+        <transmission name="tran_${prefix}_coxa">
+            <type>transmission_interface/SimpleTransmission</type>
+            <joint name="${prefix}_coxa_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>    
+            </joint>
+            <actuator name="motor_${prefix}_coxa">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+                <mechanicalReduction>50</mechanicalReduction>
+            </actuator>
+        </transmission>
+
+        <transmission name="tran_${prefix}_femur">
+            <type>transmission_interface/SimpleTransmission</type>
+            <joint name="${prefix}_femur_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>    
+            </joint>
+            <actuator name="motor_${prefix}_femur">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+                <mechanicalReduction>50</mechanicalReduction>
+            </actuator>
+        </transmission>
+
+        <transmission name="tran_${prefix}_tibia">
+            <type>transmission_interface/SimpleTransmission</type>
+            <joint name="${prefix}_tibia_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>    
+            </joint>
+            <actuator name="motor_${prefix}_tibia">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+                <mechanicalReduction>50</mechanicalReduction>
+            </actuator>
+        </transmission>
+
+        <gazebo reference="${prefix}_coxa_link">    
+            <material>Gazebo/Black</material>
+            <mu1>0.8</mu1>
+            <mu2>0.6</mu2>
+            <kp>100</kp>
+            <kd>10</kd>
+            <gravity>True</gravity>
+        </gazebo>
+
+        <gazebo reference="${prefix}_femur_link">    
+            <material>Gazebo/Black</material>
+            <mu1>0.8</mu1>
+            <mu2>0.6</mu2>
+            <kp>100</kp>
+            <kd>10</kd>
+            <gravity>True</gravity>
+        </gazebo>
+
+        <gazebo reference="${prefix}_tibia_link">    
+            <material>Gazebo/Black</material>
+            <mu1>0.8</mu1>
+            <mu2>0.6</mu2>
+            <kp>1000</kp>
+            <kd>100</kd>
+            <gravity>True</gravity>
+
+            <sensor name="${prefix}_foot_contact_sensor" type="contact">
+                <always_on>true</always_on>
+                <update_rate>1</update_rate>
+                <contact>
+                    <collision>${prefix}_tibia_link_collision</collision>
+                </contact>
+                <plugin name="gripper_bumper" filename="libgazebo_ros_bumper.so">
+                    <bumperTopicName>${prefix}_foot_contact_sensor_state</bumperTopicName>
+                    <frameName>${prefix}_foot</frameName>
+                </plugin>
+            </sensor>
+
+        </gazebo>
+
+    </xacro:macro>
+
+</robot>

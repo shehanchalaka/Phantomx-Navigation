@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="phantomx">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="AL_leg">
+        <chain base_link="base_link" tip_link="AL_foot_link" />
+    </group>
+    <group name="AR_leg">
+        <chain base_link="base_link" tip_link="AR_foot_link" />
+    </group>
+    <group name="BL_leg">
+        <chain base_link="base_link" tip_link="BL_foot_link" />
+    </group>
+    <group name="BR_leg">
+        <chain base_link="base_link" tip_link="BR_foot_link" />
+    </group>
+    <group name="CL_leg">
+        <chain base_link="base_link" tip_link="CL_foot_link" />
+    </group>
+    <group name="CR_leg">
+        <chain base_link="base_link" tip_link="CR_foot_link" />
+    </group>
+    <group name="robot_group">
+        <link name="root_link" />
+        <link name="base_link" />
+        <group name="AL_leg" />
+        <group name="AR_leg" />
+        <group name="BL_leg" />
+        <group name="BR_leg" />
+        <group name="CL_leg" />
+        <group name="CR_leg" />
+    </group>
+    <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
+    <virtual_joint name="virtual_joint" type="fixed" parent_frame="world_frame" child_link="root_link" />
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="AL_coxa_link" link2="AL_femur_link" reason="Adjacent" />
+    <disable_collisions link1="AL_coxa_link" link2="BL_coxa_link" reason="Never" />
+    <disable_collisions link1="AL_coxa_link" link2="BR_coxa_link" reason="Never" />
+    <disable_collisions link1="AL_coxa_link" link2="CL_coxa_link" reason="Never" />
+    <disable_collisions link1="AL_coxa_link" link2="CL_femur_link" reason="Never" />
+    <disable_collisions link1="AL_coxa_link" link2="CR_coxa_link" reason="Never" />
+    <disable_collisions link1="AL_coxa_link" link2="CR_femur_link" reason="Never" />
+    <disable_collisions link1="AL_coxa_link" link2="base_link" reason="Adjacent" />
+    <disable_collisions link1="AL_coxa_link" link2="kinect_link" reason="Never" />
+    <disable_collisions link1="AL_femur_link" link2="AL_tibia_link" reason="Adjacent" />
+    <disable_collisions link1="AL_femur_link" link2="CL_coxa_link" reason="Never" />
+    <disable_collisions link1="AL_femur_link" link2="CR_coxa_link" reason="Never" />
+    <disable_collisions link1="AR_coxa_link" link2="AR_femur_link" reason="Adjacent" />
+    <disable_collisions link1="AR_coxa_link" link2="BL_coxa_link" reason="Never" />
+    <disable_collisions link1="AR_coxa_link" link2="BR_coxa_link" reason="Never" />
+    <disable_collisions link1="AR_coxa_link" link2="CL_coxa_link" reason="Never" />
+    <disable_collisions link1="AR_coxa_link" link2="CL_femur_link" reason="Never" />
+    <disable_collisions link1="AR_coxa_link" link2="CR_coxa_link" reason="Never" />
+    <disable_collisions link1="AR_coxa_link" link2="CR_femur_link" reason="Never" />
+    <disable_collisions link1="AR_coxa_link" link2="base_link" reason="Adjacent" />
+    <disable_collisions link1="AR_coxa_link" link2="kinect_link" reason="Never" />
+    <disable_collisions link1="AR_femur_link" link2="AR_tibia_link" reason="Adjacent" />
+    <disable_collisions link1="AR_femur_link" link2="CL_coxa_link" reason="Never" />
+    <disable_collisions link1="AR_femur_link" link2="CR_coxa_link" reason="Never" />
+    <disable_collisions link1="BL_coxa_link" link2="BL_femur_link" reason="Adjacent" />
+    <disable_collisions link1="BL_coxa_link" link2="BR_coxa_link" reason="Never" />
+    <disable_collisions link1="BL_coxa_link" link2="CL_coxa_link" reason="Never" />
+    <disable_collisions link1="BL_coxa_link" link2="CR_coxa_link" reason="Never" />
+    <disable_collisions link1="BL_coxa_link" link2="base_link" reason="Adjacent" />
+    <disable_collisions link1="BL_coxa_link" link2="kinect_link" reason="Never" />
+    <disable_collisions link1="BL_femur_link" link2="BL_tibia_link" reason="Adjacent" />
+    <disable_collisions link1="BR_coxa_link" link2="BR_femur_link" reason="Adjacent" />
+    <disable_collisions link1="BR_coxa_link" link2="CL_coxa_link" reason="Never" />
+    <disable_collisions link1="BR_coxa_link" link2="CR_coxa_link" reason="Never" />
+    <disable_collisions link1="BR_coxa_link" link2="base_link" reason="Adjacent" />
+    <disable_collisions link1="BR_coxa_link" link2="kinect_link" reason="Never" />
+    <disable_collisions link1="BR_femur_link" link2="BR_tibia_link" reason="Adjacent" />
+    <disable_collisions link1="CL_coxa_link" link2="CL_femur_link" reason="Adjacent" />
+    <disable_collisions link1="CL_coxa_link" link2="base_link" reason="Adjacent" />
+    <disable_collisions link1="CL_coxa_link" link2="kinect_link" reason="Never" />
+    <disable_collisions link1="CL_femur_link" link2="CL_tibia_link" reason="Adjacent" />
+    <disable_collisions link1="CL_femur_link" link2="kinect_link" reason="Never" />
+    <disable_collisions link1="CR_coxa_link" link2="CR_femur_link" reason="Adjacent" />
+    <disable_collisions link1="CR_coxa_link" link2="base_link" reason="Adjacent" />
+    <disable_collisions link1="CR_coxa_link" link2="kinect_link" reason="Never" />
+    <disable_collisions link1="CR_femur_link" link2="CR_tibia_link" reason="Adjacent" />
+    <disable_collisions link1="CR_femur_link" link2="kinect_link" reason="Never" />
+    <disable_collisions link1="base_link" link2="kinect_link" reason="Adjacent" />
+</robot>

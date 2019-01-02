@@ -1,0 +1,23 @@
+ik_rate: 8
+
+## 0=RIPPLE, 1=AMBLE, 2=TRIPOD ##
+gait: 1   
+legLiftHeight: 0.045
+
+speed:
+  x: 0.0
+  y: 0.0
+  r: 0.0
+translation:
+  x: 0.0
+  y: 0.0
+  z: 0.0
+rotation:
+  x: 0.0
+  y: 0.0
+  z: 0.0
+
+endpoints:
+  x: 0.052  # 0.052
+  y: 0.134  # 0.134
+  z: 0.090  # 0.090

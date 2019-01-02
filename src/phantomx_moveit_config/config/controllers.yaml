@@ -1,0 +1,36 @@
+controller_list:
+  - name: AL_joint_trajectory_controller
+    action_ns: "follow_joint_trajectory"
+    type: FollowJointTrajectory
+    default: true
+    joints: [AL_coxa_joint, AL_femur_joint, AL_tibia_joint]
+
+  - name: AR_joint_trajectory_controller
+    action_ns: "follow_joint_trajectory"
+    type: FollowJointTrajectory
+    default: true
+    joints: [AR_coxa_joint, AR_femur_joint, AR_tibia_joint]
+
+  - name: BL_joint_trajectory_controller
+    action_ns: "follow_joint_trajectory"
+    type: FollowJointTrajectory
+    default: true
+    joints: [BL_coxa_joint, BL_femur_joint, BL_tibia_joint]
+
+  - name: BR_joint_trajectory_controller
+    action_ns: "follow_joint_trajectory"
+    type: FollowJointTrajectory
+    default: true
+    joints: [BR_coxa_joint, BR_femur_joint, BR_tibia_joint]
+
+  - name: CL_joint_trajectory_controller
+    action_ns: "follow_joint_trajectory"
+    type: FollowJointTrajectory
+    default: true
+    joints: [CL_coxa_joint, CL_femur_joint, CL_tibia_joint]
+
+  - name: CR_joint_trajectory_controller
+    action_ns: "follow_joint_trajectory"
+    type: FollowJointTrajectory
+    default: true
+    joints: [CR_coxa_joint, CR_femur_joint, CR_tibia_joint]

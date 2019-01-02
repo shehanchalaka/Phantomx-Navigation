@@ -1,0 +1,94 @@
+# joint_limits.yaml allows the dynamics properties specified in the URDF to be overwritten or augmented as needed
+# Specific joint properties can be changed with the keys [max_position, min_position, max_velocity, max_acceleration]
+# Joint limits can be turned off with [has_velocity_limits, has_acceleration_limits]
+joint_limits:
+  AL_coxa_joint:
+    has_velocity_limits: true
+    max_velocity: 6
+    has_acceleration_limits: true
+    max_acceleration: 6
+  AL_femur_joint:
+    has_velocity_limits: true
+    max_velocity: 6
+    has_acceleration_limits: true
+    max_acceleration: 6
+  AL_tibia_joint:
+    has_velocity_limits: true
+    max_velocity: 6
+    has_acceleration_limits: true
+    max_acceleration: 6
+  AR_coxa_joint:
+    has_velocity_limits: true
+    max_velocity: 6
+    has_acceleration_limits: true
+    max_acceleration: 6
+  AR_femur_joint:
+    has_velocity_limits: true
+    max_velocity: 6
+    has_acceleration_limits: true
+    max_acceleration: 6
+  AR_tibia_joint:
+    has_velocity_limits: true
+    max_velocity: 6
+    has_acceleration_limits: true
+    max_acceleration: 6
+  BL_coxa_joint:
+    has_velocity_limits: true
+    max_velocity: 6
+    has_acceleration_limits: true
+    max_acceleration: 6
+  BL_femur_joint:
+    has_velocity_limits: true
+    max_velocity: 6
+    has_acceleration_limits: true
+    max_acceleration: 6
+  BL_tibia_joint:
+    has_velocity_limits: true
+    max_velocity: 6
+    has_acceleration_limits: true
+    max_acceleration: 6
+  BR_coxa_joint:
+    has_velocity_limits: true
+    max_velocity: 6
+    has_acceleration_limits: true
+    max_acceleration: 6
+  BR_femur_joint:
+    has_velocity_limits: true
+    max_velocity: 6
+    has_acceleration_limits: true
+    max_acceleration: 6
+  BR_tibia_joint:
+    has_velocity_limits: true
+    max_velocity: 6
+    has_acceleration_limits: true
+    max_acceleration: 6
+  CL_coxa_joint:
+    has_velocity_limits: true
+    max_velocity: 6
+    has_acceleration_limits: true
+    max_acceleration: 6
+  CL_femur_joint:
+    has_velocity_limits: true
+    max_velocity: 6
+    has_acceleration_limits: true
+    max_acceleration: 6
+  CL_tibia_joint:
+    has_velocity_limits: true
+    max_velocity: 6
+    has_acceleration_limits: true
+    max_acceleration: 6
+  CR_coxa_joint:
+    has_velocity_limits: true
+    max_velocity: 6
+    has_acceleration_limits: true
+    max_acceleration: 6
+  CR_femur_joint:
+    has_velocity_limits: true
+    max_velocity: 6
+    has_acceleration_limits: true
+    max_acceleration: 6
+  CR_tibia_joint:
+    has_velocity_limits: true
+    max_velocity: 6
+    has_acceleration_limits: true
+    max_acceleration: 6

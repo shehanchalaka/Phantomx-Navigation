@@ -1,0 +1,10 @@
+build/
+devel/
+devel_isolated/
+el/
+el_isolated/
+logs/
+.catkin_tools/
+.vscode/
+.ycm_extra_config.py
+.ycm_extra_config.pyc
